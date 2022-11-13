@@ -9,12 +9,10 @@ import sqlite3
 from sqlalchemy import or_,and_
 import pandas as pd
 from twitter__ import twitter_app
-from discovery__ import discovery_app
 import re
 
 app = Flask(__name__)
 app.register_blueprint(twitter_app)
-app.register_blueprint(discovery_app)
 
 
 @app.route('/')

@@ -18,6 +18,11 @@ Group members.
 
 Let's visualize some of the pages displayed in the web application:
 
+### Part of the Home page
+
+![image](https://user-images.githubusercontent.com/49654710/201536486-484fe727-5415-4f6e-bfae-16d31e343a3a.png)
+
+
 ### End user page to filter through an SQL parsed database about the universities' statistics:
 
 ![image](https://user-images.githubusercontent.com/49654710/201534958-ef1708ab-9b5d-45e1-85f8-8bd4dccfc7bc.png)

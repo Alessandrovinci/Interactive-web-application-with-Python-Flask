@@ -1,0 +1,92 @@
+{%extends "base.html" %}
+{% block title %} COMPANY University Program {%endblock%}
+
+{% block content %}
+<div class="container-fliud p-3 my-3 bg_twitter ">
+    <row>
+         <h1>COMPANY University program</h1>
+    </row>
+</div>
+<br/>
+<div class="container-fliud p-3 my-3 bg-light text-black">
+    <h4>Discover the best universities in the world!</h4>
+    <p style= "font-size: 1.2rem">Search for the statistics and rankings of each university, or compare them for their main stenghts.<br/> 
+    <input type="button" value="Go" onclick="location.href='/filter.html'"  style="float: right;">
+   Restrict your research with various filters to highlight the importance given to a chosen parameter.</p>
+</div>
+<div class="container-fliud p-3 my-3 bg-light text-black">
+    <h4>Learn more about the Russel Group!</h4>
+    <p style= "font-size: 1.2rem">Understand the main Teaching and Research areas of the group's universities.<br/>
+    <input type="button" value="Go" onclick="location.href='/russel_group.html'" style="float: right;">
+   Focus on specific Teaching and Research fields and discover some of most innovative projects that are at the center of the academic world</p>
+</div>
+<div class="container-fliud p-3 my-3 bg-light text-black">
+    <h4>Discover insights from Twitter!</h4>
+    <p style= "font-size: 1.2rem">Perform an analysis of the tweets to extract qualitative information from the web.<br/>
+    <input type="button" value="Go" onclick="location.href='/twitter_search.html'" style="float: right;">
+  Visualize the sentiment around the tweets, the keywords and even more.</p>
+</div>
+
+  <div class='container'>
+       
+    <br/>
+    <div class="outterBound row">
+      <div class="insideSize col-sm-6">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <a href="/filter.html">
+            <img src="{{url_for('static',filename='uniworld.png')}}" width='100' class="d-block w-100"></a>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>Discover the best Universities in the world!</h5>
+            </div>
+          </div>
+
+          <div class="carousel-item" data-bs-interval="3000">
+            <a href="/russel_group.html">
+            <img src="{{url_for('static',filename='unirussel.jpg')}}"  width='100' class="d-block w-100"></a>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>Learn more about the Russel Group</h5>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <a href="/about.html">
+            <img src="{{url_for('static',filename='aboutusbillboard.jpg')}}" width='100' class="d-block w-100"></a>
+            <div class="carousel-caption d-none d-md-block">
+            <h5>About this portal</h5>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="insideSize col-sm-6">
+     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3000">
+          <a href="https://www.research.COMPANY.com/university/#">
+          <img src="{{url_for('static',filename='COMPANYglobal.png')}}" width='100' class="d-block w-100"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Discover COMPANY University Program</h5>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+<br/><br/><br/><br/><br/>
+
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{%include "base.html" %}
+{% block content %}
+<div class="container-fliud p-3 my-3 bg_twitter text-dark">
+    <h3>About the data</h3>
+</div>
+
+<div class='container'>
+  <p>This portal allows you to filter your research, by giving more weight to specific statistics and less importance to others.<br/>
+  The database considers:
+  <ul>
+    <li> The total number of students in the university </li>
+    <li> How many students are enrolled for one member of the teaching staff<b>(Student/staff ratio)</b></li>
+    <li> The position obtained in the 2020 ranking list for all the universities as provided by the Times Higher Education's portal <b>(THE rank position)</b></li>
+    <li> Percentage of international students </li>
+    <li> Percentage of Male/Female students </li>
+    <li> A score given by THE that reflects the quality of the teachings <b>(THE Teaching score) </b></li>
+    <li> A score given by THE that reflects the quality and intensity of the researches <b>(THE Research score)</b></li>
+    <li> A score given by THE that reflects the quality and frequency of the citations <b>(THE Citation score) </b></li>
+    <li> A score given by THE that reflects the average industry income offered to the graduates <b>(Industry Income)</b></li>
+    <li> A score given by THE that reflects the international outlook of the university <b>(International outlook)</b></li>
+    <li> A score given by THE to further classify the universities based on the previous parameters. The value is obtained as 30% teaching, 30% research, 30% citations, 7.5% international outlook, 2.5% industry income <b> (THE final score)</b></li>
+    <li> A new ranking position based on the THE final score computed <b>(Rank by THE final score)</b></li>
+  </ul>
+  </p>
+  <br/>
+  <p> For the 24 universities belonging to the Russel Group, the portal provides a different database that focuses on the teachings and research's areas of the universities.<br/>
+    The fields chosen are:
+    <ul>
+      <li><b>Medicine</b>. For all the teaching/researches focused on Medicine, Pharmaceutical and Veterinary</li>
+      <li><b>Life Science</b>. For all the teaching/researches focused on Biology, Biotechnology, Neuroscience and Biochemistry</li>
+      <li><b>Social Science</b>. For all the teaching/researches focused on Economics, Political sciences, Psychology, Sociology and Communication </li>
+      <li><b>Computer Science</b>. For all the teaching/researches focused on ComputerScience, Data Science, Quantum world, Machine learning and inherent fields</li>
+      <li><b>Physical Science</b>. For all the teaching/researches focused on Physics, Mathematics, Astronomy, Chemistry and Earth science</li>
+      <li><b>Engineering & Technology</b>. For all the teaching/researches focused on engineering and inherent fields</li>
+      <li><b>Arts and Humanities</b>. For all the teaching/researches focused on Education, History, Archaeology, Languages and Literature</li>
+      <li><b>Law</b>. For all the teaching/researches focused on the Law sector</li>
+      <li><b>Business</b>. For all the teaching/researches focused on the Business, Management and MBA</li>
+      <li><b>Theology</b>. For all the teaching focused on Theology and Religious studies in general</li>
+      <li><b>Environmental studies</b>. For all the researches focused on sustainable development and a greener future</li>
+    </ul>
+</div>
+
+
+{%endblock%}
+<br/><br/><br/><br/><br/>
+{%include "base_footer.html" %}

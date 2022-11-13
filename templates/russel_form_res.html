@@ -1,0 +1,58 @@
+{%extends "base.html" %}
+<br/>
+{% block title %} {{title}} {%endblock%}
+
+{% block content %}
+
+
+  <div class='container'>
+    <br/><br/>
+    {% if alert_msg == "1" %}
+      <div class="alert alert-warning" role="alert">
+      Only the first five filters are considered
+      </div>
+    {% endif %}
+    <h4>Filter by Research on:</h4>
+    <input type="button" value="Database explanation" onclick="location.href='/about.html'" style="float: right;">    
+    <ul>
+      <p>
+      {%for filter in teach_filters %}
+        <li>{{filter}}</li>
+      {%endfor%}
+    </p>
+    </ul>
+    
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+            <th>University</th>
+            <th>Teaching</th>
+            <th>Research</th>
+      </tr>
+      </thead>
+      {% for q in QR %}
+            
+            <tr>
+            <td>{{ q.University }}</td>
+            <td>{{ q.Teaching }}</td>
+            <td>{{ q.Research }}</td>
+            <script>
+            var val = "{{q.University}}";
+            </script>
+            <td>
+            <script>
+            var loc = "/specific/"+val;
+            document.write('<a href="' + loc + '">Research examples</a>')
+            </script>
+            </td>
+            </tr>
+      {%endfor%}
+    </table>
+    {% if QR|length==0%}
+    <div class="alert alert-warning" role="alert">
+      There are no results available for this research, try with different filters.
+    </div>
+    {%endif%}
+  </div>
+
+{%endblock%}

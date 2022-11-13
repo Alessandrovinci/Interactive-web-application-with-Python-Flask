@@ -1,0 +1,94 @@
+{%extends "base.html" %}
+{% block title %} All the universities {%endblock%}
+
+{% block content %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />  
+
+<div class="container-fliud p-3 my-3 bg_twitter text-dark">
+    <h3> Search for a university </h3>
+</div>
+    <div class='container'>
+           <p style="font-size: 1.3rem">Search for the statistics and rankings of each university, or compare them for their main stenghts.<br/> 
+            Restrict your research with the filters to sort the results by a chosen parameter.</p>
+        <h5> Search by name, country or visualize all the universities. </h5>
+
+        <form action="/form.html" method="POST">
+
+          <div class="mb-3">
+
+            <input type="text" id="tags" class="form-control"
+            placeholder='University Name' name=uni_name>
+
+              <script>
+              $( function() {
+                var availableTags = [
+                    {% for UN in UNIS %}
+                        "{{UN}}",
+                    {% endfor %}
+                ];
+                $( "#tags" ).autocomplete({
+                  source: availableTags
+                });
+              } );
+              </script>
+
+          </div>
+          <div class="mb-3">
+            <input type="text" id="tagsC" class="form-control"
+            placeholder='Country' name=country>
+
+              <script>
+              $( function() {
+                var availableTagsC = [
+                    {% for C in COUNTRIES %}
+                        "{{C}}",
+                    {% endfor %}
+                ];
+                $( "#tagsC" ).autocomplete({
+                  source: availableTagsC
+                });
+              } );
+              </script>
+
+          </div>
+          <h5> Sort the research by the following parameters </h5>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="SN" value="Number_students">
+              <label class="form-check-label" for="flexSwitchCheckDefault" style= "font-size: 1.2rem">Student Number</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="SR" value="Numb_students_per_Staff">
+              <label class="form-check-label" for="flexSwitchCheckChecked" style= "font-size: 1.2rem">Student Staff ratio</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked0" name="INT" value="new_inter">
+              <label class="form-check-label" for="flexSwitchCheckChecked0" style= "font-size: 1.2rem">% International students</label>
+            </div>
+      
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="Rank" value="Rank_Char">
+              <label class="form-check-label" for="flexSwitchCheckChecked1" style= "font-size: 1.2rem">THE rank position</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="Research" value="Research">
+              <label class="form-check-label" for="flexSwitchCheckChecked2" style= "font-size: 1.2rem">THE Research score</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="Teaching" value="Teaching">
+              <label class="form-check-label" for="flexSwitchCheckChecked3" style= "font-size: 1.2rem">THE Teaching score</label>
+            </div>
+            <br/>
+
+          <button type="submit" class="btn btn-secondary">GO</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{%include "base.html" %}
+{% block content %}
+
+<div class="container-fliud p-3 my-3 bg_twitter text-black">
+    <row>
+         <h3>What Twitter says...</h3>
+    </row>
+</div>
+<div class='container'>
+  <h4>Discover how the Russel group's universities are mentioned on Twitter</h4>
+  <div class="container-fliud p-3 my-3 bg-white text-black">
+    <p>
+    <ul class="research-list">
+    <li> Learn about the feelings and moods around the tweets related to a specific university.</li>
+    <li> Analyze the main topics discussed in the tweets.</li>
+    <li> Visualize the main keywords and entities that interact with the universities.</li>
+  </ul>
+</p>
+
+    
+</div>
+  
+  <h4> Search by University Name </h4>
+    <div class="form-inline">
+        <form action="/tw_form.html" method="POST">
+            <select class="form-control" type="text" id="tags" name=uni_name>
+              <option>University of Birmingham</option>
+              <option>University of Bristol</option>
+              <option>University of Cambridge</option>
+              <option>Cardiff University</option>
+              <option>Durham University</option>
+              <option>University of Edinburgh</option>
+              <option>University of Exeter</option>
+              <option>University of Glasgow</option>
+              <option>Imperial College London</option>
+              <option>King's College London</option>
+              <option>University of Leeds</option>
+              <option>University of Liverpool</option>
+              <option>London School of Economics and Political Science</option>
+              <option>University of Manchester</option>
+              <option>Newcastle University</option>
+              <option>University of Nottingham</option>
+              <option>University of Oxford</option>
+              <option>Queen Mary University of London</option>
+              <option>Queen's University Belfast</option>
+              <option>University of Sheffield</option>
+              <option>University of Southampton</option>
+              <option>University College London</option>
+              <option>University of Warwick</option>
+              <option>University of York</option>
+
+            </select>
+        <br/>
+        <button type="submit" class="btn btn-secondary mb-2">Search</button>
+    </div>
+  </form>
+  <br/><br/>
+
+    <h4> Update the database including the tweets posted during this week</h4>
+<form action="/update_database.html">
+  <button type="submit" class="btn btn-secondary mb-10">Update</button>
+</form>
+</div>
+
+{%endblock%}

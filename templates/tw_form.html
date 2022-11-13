@@ -1,0 +1,193 @@
+{%extends "base.html" %}
+{% block title %} {{title}} {%endblock%}
+
+{% block content %}
+<div class="container-fliud p-3 my-3 bg_twitter text-black">
+    <row>
+         <h3>What twitter says about {{uni_name}}</h3>
+    </row>
+</div>
+<div class="row">
+	<div class="col">
+		<div class="container-fliud">
+			<h3 style="text-align:center"><strong>Five Most retweeted tweets</strong></h3>
+			{% for q in retweets %}
+		        			<ul class="chat-list" style="margin-left: 15em">
+		        				<li class="in">
+		        					<div class="chat-img">
+		        						<img alt="Avtar" src=/static/faceless_avatar.png>
+		        					</div>
+		        					<div class="chat-body">
+		        						<div class="chat-message">
+		        							<p> {{ q }}</p>
+		        						</div>
+		        					</div>
+		        				</li>
+		        			</ul>
+		  {%endfor%}
+		 </div>
+	</div>
+</div>
+
+<br/>
+<div class="container-fluid p-3 my-3 bg-light text-black">
+  <div class="row">
+  		<br/>
+  		<h3  style="text-align:center"><strong> Results of a sentiment analysis of the tweets </strong></h3>
+  			<br/>
+  	  <div class="col">
+    	<div class="container-fliud p-3 my-3 bg-light text-black">
+	    	<h5> By analyzing the words used in a tweet, it's possible to evaluate the mood around it!</h5>
+	    	<h5> As the score given to a tweet increases, the degree of its positivity improves as well.</h5>
+	    	<br/>
+
+	    	<ul class="research-list" style="margin-left: 2em">
+	    		<li> Negative, Neutral, Positive represent gradually increasing scores.</li>
+	    		<li> And we can go more in the specific using Watson Tone analyzer.</li>
+	    		<li> Tweets are not always strictly positive or negative, but they may present different moods at the same time.<br/>
+	    			For this reason, a compound score can be used to weight these the three sentiments and merge them in a single value.</li>
+	    	</ul>
+
+	 	  </div>
+		</div>
+	  <div class="col">
+	  <h4 style="text-align:center" >Sentiment analysis</h4>
+				<img src={{url_img2}} alt="Chart" height="auto" width="100" class="d-block w-100"style="display:block;margin-left: auto; margin-right: auto">
+		</div>
+    <div class="col">
+    	<h4 style="text-align:center" >Watson Tone analysis</h4>
+       <img src="{{url_img4}}" alt="Chart" height="auto" width="100" class="d-block w-100"style="display:block;margin-left: auto; margin-right: auto">
+		</div>
+  	</div>
+      <br/>
+
+<div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+     
+      <button class="accordion-button collapsed bg_gray" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne ">
+				<h5>  <span style="color: #ff0000 "> Click to expand </span> and visualize the density and the distribution over time of the compound scores </h5>
+	      </button>
+    </h2>
+		<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+
+      	<!-- START OF ACCORDION ITEM 1-->
+     <div class="container-fluid p-3 my-3 bg-white text-black">
+					<div class="row" >
+								<br/>
+			   	<div class="col">
+
+			   		<h3><strong>Distribution of the sentiment scores </strong></h3>
+			   		<p style="font-size:1.3em;"> The graph shows how the compound sentiment score is distributed among the tweets. <br/>
+			   		 By looking at the peaks in the curve, it's possible to understand the magnitude of the positivity/negativity/neutrality of the texts.<br/>
+			   		An hypothetical tweet can indeed be classified as "positive" with both a score of 0.2 and 0.99, however this solution can sometimes be misleading. <br/>
+			   	For this reason, the graph displays the specific numerical scores and their distribution in order to understand the strength of the positive/neutral/negative label associated with the score.</p><br/><br/>
+
+							<img src={{url_imgTime}} alt="Chart" height="auto" width="100" class="d-block w-50" style="display:block;margin-left: auto; margin-right: auto;">
+					</div>
+
+				</div>
+			</div>
+
+				<!-- END OF ACC ITEM 1-->
+			</div>
+		</div>
+</div>
+</div>
+<br/><br/>
+ </div>
+<br/>
+<div class="container-fliud p-3 my-3 bg-white text-black">
+<h3  style="margin-left: 1em"><strong> Twitter interactions over time </strong></h3>	
+						<br/>	    		 
+						<p style="margin-left: 1em;font-size:1.3em;"> The graph represents a trend analysis of how Twitter's users interacted with the university thorughout the past week (right) and, in general, over time (left). <br/>
+				   		The blue dots show how the tweets and their sentiment score are distributed across the timeline, while the yellow line represents the mean of these scores.<br/>
+				   		The distribution of the dots reveals how the interactions between Twitter's users and the university varied throughout the time.<br/>
+				   		Moreover, since the values are the sentiment scores, their position explains the quality of these interactions as well. For instance, the tweets in the upper part share a positive mood related to the interaction, whereas the ones in the lower part reflect a negative feeling.  <br/>
+				   		</p><br/><br/>
+				   		<div class='row'>
+				   			<div class='col'>
+			       				<img src="{{url_imgComp}}" alt="Chart" height="auto" width="100" class="d-block w-100" style="display:block;margin-left: auto; margin-right: auto;">
+			       		</div>
+			       		<div class='col'>
+										<img src={{url_imgComp_weekly}} alt="Chart" height="auto" width="100" class="d-block w-100" style="display:block;margin-left: auto; margin-right: auto;">
+								</div>
+							</div>
+</div>
+<br/><br/><br/>
+
+
+<div class="container-fliud p-3 my-3 bg-light text-black">
+	<h3 style="margin-left: 1em"><strong> Most frequent terms/organizations/topics discussed</strong> </h3>
+		<br/>
+		<p style="margin-left: 1em;font-size:1.3em;">
+		To understand the interactions that take place on Twitter, a simple but efficient tool is to analyze the frequency of the terms used in the posts.<br/>
+		Learning what are the most repeated words, hashtags and the most mentioned entities (i.e. @COMPANYUKI) is extremely useful to determine tha main keywords, topics and, in general, to grasp the nature and goals of the connection between COMPANY and the university. <br/>
+	</p>
+	<br/>
+
+  <div class="row">
+    <div class="col">
+        <h3 style="text-align:center">Most quoted entities</h3>
+        <p style="text-align:center"> The most mentioned entities/organizations on the tweets analyzed</p>
+         <img src={{url_imgTopent}} alt="Chart" height="auto" width="30%" class="d-block w-100" style="display:block;margin-left:auto; margin-right: auto;">
+       </div>
+ 
+    <div class="col">
+      <h3 style="text-align:center">Most discussed topics </h3>
+         <p style="text-align:center">The keywords of 4 of the most discussed topics within the tweets </p>
+      <img src={{url_img}} alt="Chart" height="auto" width="30%" class="d-block w-50" style="display:block;margin-left: auto; margin-right: auto;">
+    </div>
+  </div>
+<br/>
+
+<div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <button class="accordion-button collapsed bg_gray" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        <strong> <h4  style="text-align:center"> <span style="color: #ff0000"> Click to expand </span> and learn more about the most frequent terms used </h4> </strong>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+      <div class="accordion-body">
+
+			<div class="container-fluid p-3 my-3 bg-white text-black">
+			   <div class='row'>
+				<table class="table table-borderless">
+			      <thead class="thead-light">
+					  <tr class="bg-white">
+					  	<th colspan="1" style="text-align:center"><h4>Most frequent words in the tweets</h4></th>
+							<th colspan="2" style="text-align:center"><h4>Most frequent pairs of words in the tweets</h4></th>
+						</tr>
+					</thead>
+					<tr>
+					<td>
+								<img src={{url_imgTopW}} alt="Chart" height="auto" width="30%" class="d-block w-75" style="display:block;margin-left: auto; margin-right: auto;">
+					</td>
+					
+					<td>
+								<img src={{url_imgTopbig}} alt="Chart" height="auto" width="30%" class="d-block w-75" style="display:block;margin-left: auto; margin-right: auto;">
+					</td>
+				</tr>
+			</table>
+			 </div>
+			</div>
+	
+      	<!-- END OF ACC ITEM 1-->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/><br/>
+</div>
+<br/><br/><br/>
+
+
+
+
+
+{% endblock %}
+

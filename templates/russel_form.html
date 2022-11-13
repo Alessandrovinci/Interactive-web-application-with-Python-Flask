@@ -1,0 +1,204 @@
+{%extends "base.html" %}
+<br/>
+{% block title %} {{title}} {%endblock%}
+
+{% block content %}
+
+  <div class='container'>
+    <br/><br/>
+    {% if alert_msg == "1" %}
+      <div class="alert alert-warning" role="alert">
+      Only the first five filters are considered
+      </div>
+    {% endif %}
+  </div>
+{% if flag == "0" %}
+  <div class='container'>
+    <h4>Filter by Teaching on:</h4>
+    <input type="button" value="Database explanation" onclick="location.href='/about.html'" style="float: right;">
+
+    <ul>
+      <p>
+      {%for filter in teach_filters %}
+        <li>{{filter}}</li>
+      {%endfor%}
+    </p>
+    </ul>
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+            <th>University</th>
+            <th>Teaching</th>
+            <th>Research</th>
+      </tr>
+      </thead>
+      {% for q in QR %}
+            
+            <tr>
+            <td>{{ q.University }}</td>
+            <td>{{ q.Teaching }}</td>
+            <td>{{ q.Research }}</td>
+            <script>
+            var val = "{{q.University}}";
+            </script>
+            <td>
+            <script>
+            var loc = "/specific/"+val;
+            document.write('<a href="' + loc + '">Research examples</a>')
+            </script>
+            </td>
+            </tr>
+      {%endfor%}
+    </table>
+  </div>
+
+  {%else%}
+    <div class='row'>
+      <div class='col'>
+        <div class='container' style="margin-left:5em">
+      <br/>
+      <h4>The {{uni_name}} is specialized in the teachings focused on:</h4>
+      <ul class="research-list" style="margin-left:2em">
+       {% for q in the_teachings %}
+        <li>{{q}}</li>
+      {%endfor%}
+      <br/>
+      </ul>
+      <h4>The {{uni_name}} is specialized in the research focused on:</h4>
+      <ul class="research-list" style="margin-left:2em">
+        {% for q in the_research %}
+          <li>{{q}}</li>
+        {%endfor%}
+      </ul>
+    </div>
+  </div>
+    <div class='col'>
+
+    {%set server_ip = []%}
+    {% for q in QR %}
+        {% if q.sp1!=None%}
+         {{ server_ip.append(q.sp1) or ""}}
+         {%else%}
+         {}
+        {% endif %}
+        {% if q.sp2!=None%}
+         {{ server_ip.append(q.sp2) or ""}}
+        {% endif %}
+        {% if q.sp3!=None%}
+         {{ server_ip.append(q.sp3) or ""}}
+        {% endif %}
+        {% if q.sp4!=None%}
+         {{ server_ip.append(q.sp4) or ""}}
+        {% endif %}
+        {% if q.sp5!=None%}
+         {{ server_ip.append(q.sp5) or ""}}
+        {% endif %}
+        {% if q.sp6!=None%}
+         {{ server_ip.append(q.sp6) or ""}}
+        {% endif %}
+        {% if q.sp7!=None%}
+         {{ server_ip.append(q.sp7) or ""}}
+        {% endif %}
+        {{ server_ip.append(q.webs) or ""}}
+
+    {% endfor %}
+
+    {% set list1=[] %}
+    {% set list2=[] %}
+
+    {% for q in QR %}
+          {{ list1.append(q.img.split(',')[0:3]) or ""}}
+          {{ list2.append(q.img.split(',')[3:]) or ""}}
+    {%endfor%}
+    <div class='container bg-light'>
+          <br/>
+          {% for q in QR %}
+            <h4>Some of the main researches that the {{q.University}} is pursuing:</h4>
+          {%endfor%}
+          <br/>
+          <div class="row">
+          {% for item in list1[0] %}
+              <div class="card bg-light text-dark" style="width: 19rem;">
+                {% if item=='arts'%}
+                  <img src="{{url_for('static',filename='arts.jpg')}}" width='300'>
+                {% elif item=='medicine'%}
+                  <img src="{{url_for('static',filename='medicine.jpg')}}" width='300'>
+                {% elif item=='quantum'%}
+                  <img src="{{url_for('static',filename='quantum.jpg')}}" width='300'>
+                {% elif item=='life science'%}
+                  <img src="{{url_for('static',filename='life science.jpg')}}" width='300'>
+                {% elif item=='data'%}
+                  <img src="{{url_for('static',filename='data.jpg')}}" width='300'>
+                {% elif item=='eng'%}
+                  <img src="{{url_for('static',filename='eng.jpg')}}" width='300'>
+                {% elif item=='env'%}
+                  <img src="{{url_for('static',filename='env.jpg')}}" width='300'>
+                {% elif item=='social'%}
+                  <img src="{{url_for('static',filename='social.jpg')}}" width='300'>
+                {% elif item=='physical'%}
+                  <img src="{{url_for('static',filename='physical.jpg')}}" width='300'>
+                {% elif item=='dummy'%}
+                  <img src="{{url_for('static',filename='social.jpg')}}" width='300'>
+                {% else %}
+                  <img src="{{url_for('static',filename='history.jpg')}}" width='300'>
+                {%endif%}
+
+                <div class="card-body">
+                  <h5 class="card-title">{{ server_ip[0:4][loop.index0] }}</h5>
+                </div>
+              </div> 
+      
+          {% endfor %} 
+          </div>  
+          
+          <div class="row">
+          {% for item in list2[0] %}
+              <div class="card bg-light text-dark" style="width: 19rem;">
+                {% if item=='arts'%}
+                  <img src="{{url_for('static',filename='arts.jpg')}}" width='300'>
+                {% elif item=='medicine'%}
+                  <img src="{{url_for('static',filename='medicine.jpg')}}" width='300'>
+                {% elif item=='quantum'%}
+                  <img src="{{url_for('static',filename='quantum.jpg')}}" width='300'>
+                {% elif item=='life science'%}
+                  <img src="{{url_for('static',filename='life science.jpg')}}" width='300'>
+                {% elif item=='data'%}
+                  <img src="{{url_for('static',filename='data.jpg')}}" width='300'>
+                {% elif item=='eng'%}
+                  <img src="{{url_for('static',filename='eng.jpg')}}" width='300'>
+                {% elif item=='env'%}
+                  <img src="{{url_for('static',filename='env.jpg')}}" width='300'>
+                {% elif item=='social'%}
+                  <img src="{{url_for('static',filename='social.jpg')}}" width='300'>
+                {% elif item=='space'%}
+                  <img src="{{url_for('static',filename='space.jpg')}}" width='300'>
+                {% else %}
+                  <img src="{{url_for('static',filename='history.jpg')}}" width='300'>
+                {%endif%}
+
+                <div class="card-body">
+                  <h5 class="card-title">{{ server_ip[3:-1][loop.index0] }}</h5>
+                </div>
+              </div> 
+              <br/>
+          {% endfor %} 
+          </div>
+          <br/><br/>
+
+
+
+
+  </div>
+  </div>
+
+
+  </div>
+  <br/>
+  <br/>
+           <script >
+                var loc= "{{server_ip[-1]}}"
+                document.write('<a href="' + loc + '" class="btn bg_twitter btn-lg active w-25" style="margin-left:40em" role="button" aria-pressed="true">See more in the website!</a>')
+          </script>
+  {% endif %}
+
+  {%endblock%}

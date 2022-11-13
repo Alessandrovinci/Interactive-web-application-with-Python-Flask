@@ -1,0 +1,37 @@
+{%include "base.html" %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+{% block content %}
+<br/>
+<br/>
+<br/>
+<div style="width:800px; margin:0 auto;">
+<h4> Update the database including the tweets posted during this week.</h4>
+<h4> Confirm your choice, it will take some minutes to scrape all the data.</h4>
+<br/>
+<form action="{{ url_for('twitter_app.update_databaseCOMPANY') }}" method="POST">
+	<div class="form-check form-check-inline"  style="margin-left: 17em;">
+	                <input class="btn-check" type="checkbox" id="btncheckoutlined1" name="Yes" value="yes">
+	                <label class="btn btn-outline-primary" for="btncheckoutlined1">Yes</label><br>
+	</div>
+	<div class="form-check form-check-inline">
+	                <input class="btn-check" type="checkbox" id="btncheckoutlined2" name="No" value="no">
+	                <label class="btn btn-outline-secondary" for="btncheckoutlined2">No</label><br>
+	</div>
+	<br/>
+	<br/>
+	<div  style="margin-left: 20em;">
+	                <button type="submit" class="btn btn-warning" onclick="$('#loading').show();">Confirm</button>
+	 </div>
+</form>
+<br/><br/>
+<div id="loading" style="display:none;margin-left: 20em"><img src="/static/css/ajax-loader.gif" alt="" /><strong> Gathering data...</strong></div>
+<p style="text-align: center;"> Most recent tweet stored: {{last_update}} </p>
+
+</div>
+
+{%endblock%}
+
+
+
+

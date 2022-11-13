@@ -1,0 +1,165 @@
+{%extends "base.html" %}
+
+{% block title %} {{title}} {%endblock%}
+{% block content %}
+<div class="container-fliud p-3 my-3 bg_twitter text-dark">
+         <h3>Russel Group</h3>
+</div>
+<div class='container'>
+    <p style="font-size: 1.1rem">Click here to learn more about the <a href="https://russellgroup.ac.uk/about/our-universities/"> group</a></p>
+    <p style="font-size: 1.3rem">Understand the main Teaching and Research areas of the group's universities.<br/>
+   Focus on specific Teaching and Research fields and discover some of most innovative projects that are at the center of the academic world</p>
+    <h5> Search by University Name </h5>
+    <div class="form-inline">
+        <form action="{{ url_for('russel_form') }}" method="POST">
+            <select class="form-control" type="text" id="tags" name=select_uni_name>
+              <option>ALL</option>
+              <option>University of Birmingham</option>
+              <option>University of Bristol</option>
+              <option>University of Cambridge</option>
+              <option>Cardiff University</option>
+              <option>Durham University</option>
+              <option>University of Edinburgh</option>
+              <option>University of Exeter</option>
+              <option>University of Glasgow</option>
+              <option>Imperial College London</option>
+              <option>King's College London</option>
+              <option>University of Leeds</option>
+              <option>University of Liverpool</option>
+              <option>London School of Economics and Political Science</option>
+              <option>University of Manchester</option>
+              <option>Newcastle University</option>
+              <option>University of Nottingham</option>
+              <option>University of Oxford</option>
+              <option>Queen Mary University of London</option>
+              <option>Queen's University Belfast</option>
+              <option>University of Sheffield</option>
+              <option>University of Southampton</option>
+              <option>University College London</option>
+              <option>University of Warwick</option>
+              <option>University of York</option>
+
+            </select>
+        <br/>
+        <button type="submit" class="btn btn-secondary mb-2">Search</button>
+    </div>
+    <br/>
+</div>
+    <!-- <hr style="height:2px;border-width:0;color:gray;background-color:gray"> -->
+    <div class="container-fliud p-3 my-3 bg-light text-black">
+    <div class='container'>
+        <h5> Filter the group by their main Teaching areas</h5>
+        
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btncheckoutlined" name="Law" value="Law">
+                <label class="btn btn-outline-primary" for="btncheckoutlined">Law</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2"  name="Bus" value="Business">
+                <label class="btn btn-outline-success" for="btn-check-outlined2">Business</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined3" name="Engineering & Technology" value="Engineering & Technology">
+                <label class="btn btn-outline-info" for="btn-check-outlined3">Engineering & Technology</label><br>
+            </div>
+           <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined4" name="Medicine" value="Medicine">
+                <label class="btn btn-outline-warning" for="btn-check-outlined4">Medicine</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined5" name="Arts & Humanities" value="Arts & Humanities">
+                <label class="btn btn-outline-danger" for="btn-check-outlined5">Arts & Humanities</label><br>
+            </div>
+            <br/><br/>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined6" name="Life Science" value="Life Science">
+                <label class="btn btn-outline-secondary" for="btn-check-outlined6">Life Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined7" name="Physical Science" value="Physical Science">
+                <label class="btn btn-outline-dark" for="btn-check-outlined7">Physical Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined8" name="Social Science" value="Social Science">
+                <label class="btn btn-outline-primary" for="btn-check-outlined8">Social Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined9" name="Computer Science" value="Computer Science">
+                <label class="btn btn-outline-success" for="btn-check-outlined9">Computer Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined10" name="Theology" value="Theology">
+                <label class="btn btn-outline-warning" for="btn-check-outlined10">Theology</label><br>
+            </div>
+
+
+            <br/><br/>
+            <div>
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    <br/>
+    <!-- <hr style="height:2px;border-width:0;color:gray;background-color:gray"> -->
+
+    <div class="container-fliud p-3 my-3 bg-light text-black">
+    <div class='container'>
+        <form action="{{ url_for('russel_form_res') }}" method="POST">
+            <h5> Filter the group by their main Research areas</h5>
+
+           <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_1" name="Environmental studies" value="Environmental studies">
+                <label class="btn btn-outline-warning" for="btn-check-outlined2_1">Environmental studies</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_2"  name="Bus2" value="Business">
+                <label class="btn btn-outline-success" for="btn-check-outlined2_2">Business</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_3" name="Engineering & Technology2" value="Engineering & Technology">
+                <label class="btn btn-outline-info" for="btn-check-outlined2_3">Engineering & Technology</label><br>
+            </div>
+           <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_4" name="Medicine2" value="Medicine">
+                <label class="btn btn-outline-warning" for="btn-check-outlined2_4">Medicine</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_5" name="Arts & Humanities2" value="Arts & Humanities">
+                <label class="btn btn-outline-danger" for="btn-check-outlined2_5">Arts & Humanities</label><br>
+            </div>
+            <br/><br/>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_6" name="Life Science2" value="Life Science">
+                <label class="btn btn-outline-secondary" for="btn-check-outlined2_6">Life Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_7" name="Physical Science2" value="Physical Science">
+                <label class="btn btn-outline-dark" for="btn-check-outlined2_7">Physical Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_8" name="Social Science2" value="Social Science">
+                <label class="btn btn-outline-primary" for="btn-check-outlined2_8">Social Science</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btn-check-outlined2_9" name="Computer Science2" value="Computer Science">
+                <label class="btn btn-outline-success" for="btn-check-outlined2_9">Computer Science</label><br>
+            </div>
+           <div class="form-check form-check-inline">
+                <input class="btn-check" type="checkbox" id="btncheckoutlined2_10" name="Law2" value="Law">
+                <label class="btn btn-outline-primary" for="btncheckoutlined2_10">Law</label><br>
+            </div>
+     
+
+            <br/><br/>
+            <div>
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </div>
+
+        </form>
+    </div>
+    </div>
+
+
+
+{% endblock %}

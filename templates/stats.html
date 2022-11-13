@@ -1,0 +1,49 @@
+{%extends "base.html" %}
+{% block title %} COMPANY University Program {%endblock%}
+
+{% block content %}
+    <table class="table" style="margin-left:1.5em">
+        <tr>
+            <th>University</th>
+            <th>Country</th>
+            <th>Number of Students</th>
+            <th>Student/Staff ratio</th>
+            <th>International Students</th>
+            <th>Female Percentage</th>
+            <th>Male Percentage</th>
+            <th>Research score</th>
+            <th>Teaching score</th>
+            <th>Citations score</th>
+            <th>Industry Income</th>
+            <th>International Outlook</th>
+            <th>THE final Score</th>
+            <th>Rank by THE final Score</th>
+
+        </tr>
+
+        {% for q in QR %}
+        <tr>
+            <td>{{ q.University }}</td>
+            <td>{{ q.Country }}</td>
+            <td>
+            <script>
+            var studs = Math.trunc("{{q.Number_students}}");
+            document.write('' + studs + '')
+        	</script>
+          	</td>
+            <td>{{ q.Numb_students_per_Staff }}</td>
+            <td>{{ q.International_Students}}</td>
+            <td>{{ q.Percentage_Female }}</td>
+            <td>{{ q.Percentage_Male }}</td>
+            <td>{{ q.Research }}</td>
+            <td>{{ q.Teaching }}</td>
+            <td>{{ q.Citations }}</td>
+            <td>{{ q.Industry_Income }}</td>
+            <td>{{ q.International_Outlook }}</td>
+            <td>{{ q.Score_Result }}</td>
+            <td>{{q.Score_Rank}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

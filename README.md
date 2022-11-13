@@ -36,7 +36,7 @@ Let's visualize some of the pages displayed in the web application:
 
 ### End user page to review the results of the first part of the twitter analysis
 
-![image](https://user-images.githubusercontent.com/49654710/201536269-ebca614a-2cd2-4f77-9ee0-86ca5454e04a.png)
+![image](https://user-images.githubusercontent.com/49654710/201536326-1a8795cb-e83c-44b2-884e-2bdffdee7022.png)
 
 
 # NOTES

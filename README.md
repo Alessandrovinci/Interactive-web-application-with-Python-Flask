@@ -42,12 +42,16 @@ Let's visualize some of the pages displayed in the web application:
 
 ![image](https://user-images.githubusercontent.com/49654710/201536326-1a8795cb-e83c-44b2-884e-2bdffdee7022.png)
 
+### End user page to review the results of the second part of the twitter analysis
+
+![image](https://user-images.githubusercontent.com/49654710/201614899-bfd5e57a-e6e0-4cf7-b6c7-78e2ea72b942.png)
+
 
 # NOTES
 COMPANY.py is the main file for the web application and the twitter.py file is the secondary file for the twitter analysis.
 The application is Flask based, and it uses SQL to parse through the defined databases and display the data about the universities.
 
-The HTML files are stored in templated, while static refers to the folder for images.
+The HTML files are stored in templates, while static refers to the folder for images.
 
 As a final note, I want to point out that since the project was for a specific company, the codes and files have been anonymized. Nevertheless, I still had to delete some part of the code that was too specific for the company of the interest. For this reason, there may be some functions or lines that do not have a reference within the code, but that should not cause any issue in understanding what is going on within the application.
 

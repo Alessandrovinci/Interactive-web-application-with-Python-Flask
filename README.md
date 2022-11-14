@@ -10,7 +10,7 @@ How were the universities perceived on the web and on Twitter? Was the company c
 The web portal was developed following ﬁve main guidelines or tasks that can be summarized in: 
 
 1. Allow easy access to the relevant statistics about all the universities. 
-2. Display the main teaching and research areas of interest of the Russel Group’s1 members. 
+2. Display the main teaching and research areas of interest of the Russel Group’s members. 
 3. Provide a Twitter analysis of the tweets related to the Russel Group members and the company. 
 4. Analyse the most recent news and blog posts available on the web about the company and the Russel 
 Group members. 
@@ -46,6 +46,8 @@ Let's visualize some of the pages displayed in the web application:
 # NOTES
 COMPANY.py is the main file for the web application and the twitter.py file is the secondary file for the twitter analysis.
 The application is Flask based, and it uses SQL to parse through the defined databases and display the data about the universities.
+
+The HTML files are stored in templated, while static refers to the folder for images.
 
 As a final note, I want to point out that since the project was for a specific company, the codes and files have been anonymized. Nevertheless, I still had to delete some part of the code that was too specific for the company of the interest. For this reason, there may be some functions or lines that do not have a reference within the code, but that should not cause any issue in understanding what is going on within the application.
 
